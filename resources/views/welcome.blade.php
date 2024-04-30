@@ -208,7 +208,7 @@
             @endif
 
             <div class="todo-app">
-            <h1 class="todo-header">TO-DO LIST</h1>
+            <h1 class="todo-header">TO-DO APP</h1>
             <form method="post" class="input-section" action="{{ route('saveItem') }}" accept-charset="UTF-8">
                     {{ csrf_field() }}
                 <input id="todoInput"  name="listItem" type="text" placeholder="Add item..." />
@@ -222,11 +222,11 @@
                             <span class="todo-text"></span>
                             <form method="post" action="{{ route('markComplete', $item->id) }}" accept-charset="UTF-8">
                             {{ csrf_field() }}
-                                <button type="submit"  style="background-color: transparent; border: none;"> <span class="span-button"><i class="fa-solid fa-check"></i></span></button>
+                                <button type="submit"  data-toggle="tooltip" data-placement="top" title="Mark Complete" style="background-color: transparent; border: none;"> <span class="span-button"><i class="fa-solid fa-check"></i></span></button>
                             </form>
                             <form method="post" action="{{ route('delete', $item->id) }}" accept-charset="UTF-8">
                             {{ csrf_field() }}
-                                <button type="submit" style="background-color: transparent; border: none;"> <span class="span-button"><i class="fa-solid fa-trash"></i></span></button>
+                                <button type="submit"  data-toggle="tooltip" data-placement="top" title="Delete Item" style="background-color: transparent; border: none;"> <span class="span-button"><i class="fa-solid fa-trash"></i></span></button>
                             </form>
                         </li>
                     @endforeach
@@ -235,7 +235,7 @@
                             <span class="todo-text" style="text-decoration: line-through;">{{ $item->name }}</span>
                             <form method="post" action="{{ route('delete', $item->id) }}" accept-charset="UTF-8">
                             {{ csrf_field() }}
-                                <button type="submit" style="background-color: transparent; border: none;"> <span class="span-button"><i class="fa-solid fa-trash"></i></span></button>
+                                <button type="submit" data-toggle="tooltip" data-placement="top" title="Delete Item" style="background-color: transparent; border: none;"> <span class="span-button"><i class="fa-solid fa-trash"></i></span></button>
                             </form>
                         </li>
                     @endforeach
